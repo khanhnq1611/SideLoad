@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+Debug/
+Release/
+x64/
+*/x64/Debug/
+*/x64/Release/
+*.ilk
+*.log
+*.tlog
+*.pch
+*.pdb
+*.obj
+*.lib
+*.exp
+*.dll
+*.exe
+*.recipe
+
+# Visual Studio Code
+.vscode/
+
+# Other
+*.cache
+*.vsix
+
+# Git LFS pointer files (if you use LFS instead of storing binaries)
+.gitattributes
