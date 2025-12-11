@@ -16,4 +16,10 @@ Important files
 - `SideLoad/syscalls.c` and `SideLoad/syscall.h` — syscall wrappers and related helpers.
 - `SideLoad/SideLoad.rc` and resource files — resources used by the DLL.
 
+How the DLL works
+
+- The DLL's entry point is implemented in `SideLoad/dllmain.cpp`. When the DLL is loaded into a process the `DllMain` routine runs initialization code (thread/process attach handling), sets up any runtime state, and registers or exposes the DLL's functionality.
+- Low-level operations and direct syscall helpers live in `SideLoad/syscalls.c` and `SideLoad/syscall.h`; these are used by the DLL to perform privileged or low-level actions without relying on higher-level runtime wrappers.
+- The built DLL exports its public functions (or performs in-process behavior) and runs inside the host process; use caution when loading or injecting native DLLs and ensure you understand the runtime effects.
+- After it is  called and loaded by the process, it will create a new process and hollow it, so even when the process done, the defender will stuck to find where the malicious process exist 
 
